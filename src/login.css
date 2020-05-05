@@ -1,0 +1,33 @@
+button{
+    background-color: #054375;
+    width: 50%;
+    height: 30px;
+    color: white;
+    border: none;
+}
+
+.details{
+    border: 3px solid #5992c0;
+    padding: 10px;
+    width: 80%;
+    height: 200px;
+    margin: 50px;
+    border-collapse: collapse;
+}
+
+.forms{
+    border: 1px solid #ebe4eb;
+    width: 50%;
+    height: 200px;
+    margin: 20px;
+}
+th{
+    text-align: center;
+    font-size: medium;
+    color: brown;
+    height: 30px;
+}
+td{
+    height:30px ;
+    padding-left: 10px;
+}
