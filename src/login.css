@@ -1,11 +1,44 @@
 button{
     background-color: #054375;
-    width: 50%;
+    width: 185px;
     height: 30px;
     color: white;
     border: none;
+    margin-top:20px;
+    float: center;
+    margin-left: 35px;
+}
+.log{
+    background-image: url("https://as2.ftcdn.net/jpg/01/95/37/99/500_F_195379915_wIYTPA0nJJ7jVBlkq33x1cJftRj6vgni.jpg");
+    height: 100%; 
+    width: 100%;
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.forms{
+    background-color: lightcyan;
+    border: 1px solid #ebe4eb;
+    width: 250px;
+    float: right;
+    height: 230px;
+    margin: 20px;
+    margin-top: 80px;
+}
+.name1{
+    margin: 20px;
+    margin-left: 35px;
+    margin-top: 30px;
+    padding: 5px;
 }
 
+.name2{
+    padding: 5px;
+    margin-left: 35px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
 .details{
     border: 3px solid #5992c0;
     padding: 10px;
@@ -15,12 +48,6 @@ button{
     border-collapse: collapse;
 }
 
-.forms{
-    border: 1px solid #ebe4eb;
-    width: 50%;
-    height: 200px;
-    margin: 20px;
-}
 th{
     text-align: center;
     font-size: medium;
