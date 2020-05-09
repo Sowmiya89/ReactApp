@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Card,{CardBody,CardTitle} from 'material-ui/Card';
-import jsondata from './autoparts.json';
+import jsondata from './assets/autoparts.json';
 
 export default class Order extends Component{
 
@@ -32,21 +32,18 @@ export default class Order extends Component{
 
     renderParts = item =>{
         const {search} = this.state;
-        return <div style={ {marginTop : '20px'},{marginLeft : '20px'} }>
-           <p>{item.name}</p>
-            <p>{item.position_held}</p>
-            <hr />
+        return <div style={ {marginTop : '20px'} }>
+            <Card>
+                <CardBody>
+                    <p><img src={item.image} alt = {item.name}/></p>
+                    <CardTitle title={item.name}>{item.name}</CardTitle>
+                </CardBody>
+            </Card>
         </div>
     }
 
     onhandleSearch(event){
-        const search = event.target.value;
-        this.setState(jsondata => {
-        const filteredParts = jsondata.filter(item =>{
-            return item.name.toLowerCase().includes(search.toLowerCase());
-        });
-        return {search,filteredParts};
-        });
+        this.setState({search: event.target.value});
     }
 
     render(){
@@ -57,12 +54,7 @@ export default class Order extends Component{
         const {username} = this.props.match.params;
         const {search} = this.state;
         const filteredParts = jsondata.filter(item =>{
-            var val = item.name.toLowerCase().toString();
-            if(val.indexOf(search.toLowerCase())){
-                return item.name;
-            }else{
-                return -1;
-            }
+                return item.name.toLowerCase().indexof(search.toLowerCase()) === -1
         })
         return(
             <div>
@@ -71,8 +63,10 @@ export default class Order extends Component{
                 <main style={ {marginTop:'4rem'} }>
                 <h3>Welcome {username}</h3>
                 <div className="container">
-                    <div className="col" style={{float:'center'}}>
-                        <input placeholder = "Search Parts" onChange={this.onhandleSearch.bind(this)}/>
+                    <div class="row">
+                        <div className="col">
+                            <input label = "Search Parts" icon="search" onChange={this.onhandleSearch}/>
+                        </div>
                     </div>
                     <div className="row">
                         {
@@ -80,6 +74,14 @@ export default class Order extends Component{
                                 return this.renderParts(item);
                             })
                         }
+
+                {
+                   /* partsList.map((data,index)=>{
+                        return <div key={index}>
+                            <h1 key={index}> {data.name}</h1>
+                            </div>
+                    }) */
+                }
                     </div>
                 </div>
                 </main>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './login.css';
 
 export default class Login extends React.Component{
  
@@ -20,9 +19,14 @@ export default class Login extends React.Component{
         }
     }
 
+    handleRegister(event){
+        this.props.history.push("/register");
+    }
+
     render(){
         let format = {
-            color:"red"
+            color:"red",
+            textAlign: "center"
         };
         return(
            <div className='log'>
@@ -43,6 +47,8 @@ export default class Login extends React.Component{
                 <button type="submit" onClick={(event) =>
                         this.handleClick(event,this.state.username,this.state.password)
                 }>Login</button>
+
+                <button type="register" onClick={this.handleRegister.bind(this)}>Register</button>
                 </form>
            </div>
         );
