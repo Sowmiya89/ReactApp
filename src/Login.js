@@ -4,16 +4,15 @@ export default class Login extends React.Component{
  
     constructor(props){
         super(props);
-        this.state={
-            isloggedIn : false, error:'',
-        };
+        this.state = {
+            "isLogged" : true,
+            "error" : ""};
     }
 
     handleClick(event,username,password){
         if(username === "sowmiya" && password === "123"){
             console.log("loggedIn");
-            this.setState({isloggedIn:true});
-            this.props.history.push('/order/' + username);
+            this.props.history.push('/parts');
         }else{
             this.setState({error:'Not a valid user'});
         }
