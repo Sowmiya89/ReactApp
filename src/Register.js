@@ -31,17 +31,15 @@ export default class Register extends Component{
     render(){
         return(
             <div>
+                <h1 style={{textAlign:'center'}}>Registration</h1>
                 <form className="register_form" onSubmit={this.handleSubmit}>
                     <input type="text" className="name1" placeholder="Username" 
-                    value = {this.state.username} 
                     onChange={this.handleChange} 
                     required />
                      <input type="password" className="name2" placeholder="Password" 
-                    value = {this.state.password} 
                     onChange={this.handleChange} 
                     required />
                      <input type="password_confirmation" className="name2" placeholder="Password_Confirmation" 
-                    value = {this.state.password_confirmation} 
                     onChange={this.handleChange} 
                     required />
                     <button type="submit">Submit</button>

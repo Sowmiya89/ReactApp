@@ -5,6 +5,8 @@ import Order from './Order';
 import Register from './Register';
 import Cart from './Cart';
 import Parts from './Parts';
+import ErrorBoundry from './ErrorHandling/ErrorBoundry';
+import BuggyCounter from './ErrorHandling/BuggyCounter';
 
 export default class App extends Component{
 
@@ -16,20 +18,20 @@ export default class App extends Component{
   }
 
   render(){
-      return (
-        <div>
-            <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={Login} />
-              <Route path="/parts" component={Parts}/>
-              <Route path="/logout" component={Login}/>
-              <Route path="/register" component={Register}/>
-              <Route path="/cart" component={Cart}/>
-              <Route path="/order" component={Order}/>
-            </Switch>
-            </BrowserRouter>
-       </div>
-     );
+    return (
+      <div>
+          <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route path="/parts" component={Parts}/>
+            <Route path="/logout" component={Login}/>
+            <Route path="/register" component={Register}/>
+            <Route path="/cart" component={Cart}/>
+            <Route path="/order" component={Order}/>
+          </Switch>
+          </BrowserRouter>
+     </div>
+   );
   }
 
   /*setRegisterStatus(data) {

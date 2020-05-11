@@ -66,7 +66,7 @@ export default class Parts extends Component{
         .map(item => {
             return (
                 <div key={item.id}>
-                    <button type="add" style={{float:'right',marginRight:'150px'}} onClick={()=>this.onAddItem(item)}><span>Add</span></button>
+                    <button type="add" style={{float:'right',marginRight:'150px'}} onClick={()=>this.onAddItem(item)}><span>Add to Cart</span></button>
                     <p style={format} >{item.name}</p>
                     <p style={format} >{item.position_held}</p>  
                     <hr />
