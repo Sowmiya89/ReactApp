@@ -5,54 +5,75 @@ import Order from './Order';
 import Register from './Register';
 import Cart from './Cart';
 import Parts from './Parts';
-import ErrorBoundry from './ErrorHandling/ErrorBoundry';
-import BuggyCounter from './ErrorHandling/BuggyCounter';
+import Header from './Header';
 
 export default class App extends Component{
 
   constructor(props) {
     super(props);
-    this.state = {"isLogged" : false};
-    //this.setLoginStatus = this.setLoginStatus.bind(this);
-    //this.setRegisterStatus = this.setRegisterStatus.bind(this);
+    this.state = 
+     [ {"isLogged" : false},{userDetails:''}];
+    this.setLoginStatus = this.setLoginStatus.bind(this);
+    this.setRegisterStatus = this.setRegisterStatus.bind(this);
   }
 
   render(){
-    return (
-      <div>
-          <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route path="/parts" component={Parts}/>
-            <Route path="/logout" component={Login}/>
-            <Route path="/register" component={Register}/>
-            <Route path="/cart" component={Cart}/>
-            <Route path="/order" component={Order}/>
-          </Switch>
+    
+    if(this.state[0].isLogged){
+        return (
+          <div>
+            <Header/>
+          <div>
+            <BrowserRouter>
+              <Switch>
+                  <Route path="/parts" component={Parts}/>
+              </Switch>
+            </BrowserRouter>
+        </div>
+        </div>
+        );
+    }else{
+      return (
+        <div>
+          <Header/>
+        <div>
+            <BrowserRouter>
+            <Switch>
+                <Route exact path='/' 
+                      render={props => <Login {...props} loginstate={this.setLoginStatus}/>}
+                />
+            
+            <Route path='/Register' 
+                   render={props => <Register {...props} registerState={this.setRegisterStatus} />}/>
+                    <Route path="/parts" component={Parts}/>
+              <Route path="/logout" component={Login}/>
+              <Route path="/cart" component={Cart}/>
+              <Route path="/order" component={Order}/>
+            </Switch>
           </BrowserRouter>
      </div>
-   );
+     </div>
+      );
+    }
+   
   }
 
-  /*setRegisterStatus(data) {
-    this.setState(
-      [
+  setRegisterStatus(userData) {
+    this.setState( [     
         {"isLogged" : true},
-        {"userDetail" : data}
-      ]
+        {"userDetails":userData}
+    ]
     );
   }
   
-  setLoginStatus(isLogged, data) {
+  setLoginStatus(isLogged) {
     console.log("isLogged : " + isLogged);
-    console.log("data : " + data);
-    if(isLogged == undefined) return;
-    this.setState(
-      [
-        {"isLogged" : isLogged},
-        {"userDetail" : data}
-      ]
+    if(isLogged === undefined) return;
+    this.setState([
+      
+        {"isLogged" : isLogged}
+    ]
     );
-  }*/
+  }
   
 }

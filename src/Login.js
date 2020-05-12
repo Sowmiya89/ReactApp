@@ -9,13 +9,15 @@ export default class Login extends React.Component{
             "error" : ""};
     }
 
-    handleClick(event,username,password){
-        if(username === "sowmiya" && password === "123"){
+    handleClick(event){
+        if(this.state.username === "sowmiya" && this.state.password === "123"){
             console.log("loggedIn");
+            this.props.loginstate(this.state.isLogged);
             this.props.history.push('/parts');
         }else{
             this.setState({error:'Not a valid user'});
         }
+        
     }
 
     handleRegister(event){
@@ -44,7 +46,7 @@ export default class Login extends React.Component{
                 }></input>
                 <span style={format} >{this.state.error !== ''? this.state.error :''}</span>
                 <button type="submit" onClick={(event) =>
-                        this.handleClick(event,this.state.username,this.state.password)
+                        this.handleClick(event)
                 }>Login</button>
 
                 <button type="register" onClick={this.handleRegister.bind(this)}>Register</button>

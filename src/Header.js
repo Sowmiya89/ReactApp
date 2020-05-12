@@ -11,7 +11,7 @@ export default class Header extends Component{
         }
         return(
             <div>
-                <h1 style={format}> Parts Item Page </h1>
+                <h1 style={format}> Autoparts Store </h1>
             </div>
         );
     }

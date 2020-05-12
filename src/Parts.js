@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import Header from './Header';
 import jsondata from './autoparts.json';
 
 export default class Parts extends Component{
@@ -75,7 +74,6 @@ export default class Parts extends Component{
         })
         return(
             <div>
-                <Header />
                 <button style={styles} onClick={this.logout.bind(this)}>Logout</button>
                 <main style={ {marginTop:'4rem'} }>
                 <div className="container">
@@ -87,7 +85,7 @@ export default class Parts extends Component{
                     </div>
                 </div>
                 </main>
-                <button type="cart" onClick={()=> this.onHandleCart()}>Cart</button>
+                <button type="cart" onClick={() => this.onHandleCart()}>View Cart</button>
             </div>
         );
     }

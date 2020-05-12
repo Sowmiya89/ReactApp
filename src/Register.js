@@ -25,6 +25,11 @@ export default class Register extends Component{
     handleSubmit(event){
         console.log("form submitted");
         event.preventDefault();
+        var userDetail = {
+            username : this.state.username,
+            password: this.state.password
+        }
+        this.props.registerState(userDetail);
         this.props.history.push('/parts');
     }
 
