@@ -15,14 +15,13 @@ export default class Parts extends Component{
     }
     
     logout(){
-        this.props.history.push('/logout');
+        this.props.history.push('/');
     }
 
-    
     /*componentWillMount(){
            axios.get('http://localhost:3000/employees')
             .then((employees) => {
-                console.log("Order Details",employees);
+                console.log("Part Details",employees);
                 this.setState(
                     {employees : employees.data}
                 )

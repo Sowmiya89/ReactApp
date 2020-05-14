@@ -12,14 +12,14 @@ export default class App extends Component{
   constructor(props) {
     super(props);
     this.state = 
-     [ {"isLogged" : false},{userDetails:''}];
+     {"isLogged" : false};
     this.setLoginStatus = this.setLoginStatus.bind(this);
     this.setRegisterStatus = this.setRegisterStatus.bind(this);
   }
 
   render(){
     
-    if(this.state[0].isLogged){
+    if(this.state.isLogged){
         return (
           <div>
             <Header/>
@@ -42,11 +42,9 @@ export default class App extends Component{
                 <Route exact path='/' 
                       render={props => <Login {...props} loginstate={this.setLoginStatus}/>}
                 />
-            
             <Route path='/Register' 
                    render={props => <Register {...props} registerState={this.setRegisterStatus} />}/>
-                    <Route path="/parts" component={Parts}/>
-              <Route path="/logout" component={Login}/>
+                  <Route path="/parts" component={Parts}/>
               <Route path="/cart" component={Cart}/>
               <Route path="/order" component={Order}/>
             </Switch>
@@ -58,21 +56,17 @@ export default class App extends Component{
    
   }
 
-  setRegisterStatus(userData) {
-    this.setState( [     
-        {"isLogged" : true},
-        {"userDetails":userData}
-    ]
+  setRegisterStatus() {
+    this.setState(     
+        {"isLogged" : true}
     );
   }
   
   setLoginStatus(isLogged) {
     console.log("isLogged : " + isLogged);
     if(isLogged === undefined) return;
-    this.setState([
-      
+    this.setState(
         {"isLogged" : isLogged}
-    ]
     );
   }
   
